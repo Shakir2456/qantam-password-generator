@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Password Generator | CyberSec 2077</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg">
+    <meta name="theme-color" content="#00ffff">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    <div class="cyber-grid"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="quantum-text">QUANTUM</span>
+                <span class="password-text">PASSWORD</span>
+                <span class="generator-text">GENERATOR</span>
+            </h1>
+            <div class="subtitle">NEURAL SECURITY PROTOCOL v2.077</div>
+        </header>
+
+        <div class="main-panel">
+            <div class="control-panel">
+                <div class="section">
+                    <label class="cyber-label">
+                        <span class="label-text">PASSWORD LENGTH</span>
+                        <div class="input-group">
+                            <input type="range" id="lengthSlider" min="8" max="128" value="16" class="cyber-slider">
+                            <input type="number" id="lengthInput" min="8" max="128" value="16" class="cyber-input">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="section">
+                    <div class="options-grid">
+                        <label class="cyber-checkbox">
+                            <input type="checkbox" id="uppercase" checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">UPPERCASE [A-Z]</span>
+                        </label>
+                        
+                        <label class="cyber-checkbox">
+                            <input type="checkbox" id="lowercase" checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">LOWERCASE [a-z]</span>
+                        </label>
+                        
+                        <label class="cyber-checkbox">
+                            <input type="checkbox" id="numbers" checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">NUMBERS [0-9]</span>
+                        </label>
+                        
+                        <label class="cyber-checkbox">
+                            <input type="checkbox" id="symbols" checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">SYMBOLS [!@#$%]</span>
+                        </label>
+                        
+                        <label class="cyber-checkbox">
+                            <input type="checkbox" id="quantum" checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">QUANTUM ENTROPY</span>
+                        </label>
+                        
+                        <label class="cyber-checkbox">
+                            <input type="checkbox" id="exclude" >
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">EXCLUDE SIMILAR</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <button id="generateBtn" class="cyber-button generate-btn">
+                        <span class="btn-text">GENERATE QUANTUM PASSWORD</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="output-panel">
+                <div class="password-display">
+                    <div class="password-header">
+                        <span class="output-label">GENERATED PASSWORD</span>
+                        <div class="quantum-indicator">
+                            <span class="quantum-status">QUANTUM ACTIVE</span>
+                            <div class="quantum-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="password-container">
+                        <input type="text" id="passwordOutput" readonly class="password-field">
+                        <button id="copyBtn" class="copy-btn">
+                            <span class="copy-icon">⧉</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="strength-analyzer">
+                    <div class="strength-header">SECURITY ANALYSIS</div>
+                    <div class="strength-bars">
+                        <div class="strength-bar" data-level="1"></div>
+                        <div class="strength-bar" data-level="2"></div>
+                        <div class="strength-bar" data-level="3"></div>
+                        <div class="strength-bar" data-level="4"></div>
+                        <div class="strength-bar" data-level="5"></div>
+                    </div>
+                    <div class="strength-text">QUANTUM SECURE</div>
+                </div>
+
+                <div class="entropy-display">
+                    <div class="entropy-header">QUANTUM ENTROPY</div>
+                    <div class="entropy-value">
+                        <span id="entropyValue">256</span>
+                        <span class="entropy-unit">BITS</span>
+                    </div>
+                    <div class="entropy-bar">
+                        <div class="entropy-fill"></div>
+                    </div>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-item">
+                        <span class="stat-label">CRACK TIME</span>
+                        <span class="stat-value" id="crackTime">∞ YEARS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">COMBINATIONS</span>
+                        <span class="stat-value" id="combinations">2^256</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-panel">
+            <div class="history-header">PASSWORD HISTORY</div>
+            <div class="history-list" id="historyList">
+                <!-- Password history will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Information -->
+    <footer class="developer-info">
+        <div class="dev-container">
+            <div class="dev-header">
+                <span class="dev-title">DEVELOPED BY</span>
+                <div class="dev-pulse"></div>
+            </div>
+            <div class="dev-details">
+                <div class="dev-name">
+                    <span class="dev-label">DEVELOPER:</span>
+                    <span class="dev-value">SHAKIR HOSSAIN</span>
+                </div>
+                <div class="dev-contact">
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <a href="https://shakir.com.bd" target="_blank" class="contact-link">shakir.com.bd</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:admin@shakir.com.bd" class="contact-link">admin@shakir.com.bd</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dev-signature">
+                <span class="signature-text">NEURAL SECURITY ARCHITECT</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cyber-particles"></div>
+    <script src="script.js"></script>
+</body>
+</html>

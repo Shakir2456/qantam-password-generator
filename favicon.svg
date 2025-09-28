@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="quantumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff00ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffff00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0a0a0a" rx="4"/>
+  
+  <!-- Quantum particles -->
+  <circle cx="6" cy="6" r="1" fill="#00ffff" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="26" cy="8" r="0.8" fill="#ff00ff" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="8" cy="26" r="0.6" fill="#ffff00" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Main lock symbol -->
+  <g filter="url(#glow)">
+    <!-- Lock body -->
+    <rect x="11" y="16" width="10" height="8" rx="1" fill="url(#quantumGrad)" stroke="#00ffff" stroke-width="0.5"/>
+    
+    <!-- Lock shackle -->
+    <path d="M 13 16 L 13 12 Q 13 9 16 9 Q 19 9 19 12 L 19 16" 
+          fill="none" 
+          stroke="url(#quantumGrad)" 
+          stroke-width="1.5" 
+          stroke-linecap="round"/>
+    
+    <!-- Keyhole -->
+    <circle cx="16" cy="19" r="1.5" fill="#0a0a0a"/>
+    <rect x="15.2" y="19" width="1.6" height="2" fill="#0a0a0a"/>
+  </g>
+  
+  <!-- Circuit lines -->
+  <g stroke="#00ffff" stroke-width="0.3" fill="none" opacity="0.4">
+    <path d="M 2 10 L 8 10 L 8 14"/>
+    <path d="M 24 6 L 28 6 L 28 12"/>
+    <path d="M 4 22 L 10 22 L 10 26"/>
+    <path d="M 22 28 L 26 28 L 26 24"/>
+  </g>
+  
+  <!-- Corner accents -->
+  <rect x="1" y="1" width="4" height="1" fill="#00ffff" opacity="0.6"/>
+  <rect x="27" y="1" width="4" height="1" fill="#ff00ff" opacity="0.6"/>
+  <rect x="1" y="30" width="4" height="1" fill="#ffff00" opacity="0.6"/>
+  <rect x="27" y="30" width="4" height="1" fill="#00ffff" opacity="0.6"/>
+</svg>
